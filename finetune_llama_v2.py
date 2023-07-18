@@ -61,7 +61,7 @@ class ScriptArguments:
     lora_r: Optional[int] = field(default=64)
     max_seq_length: Optional[int] = field(default=512)
     model_name: Optional[str] = field(
-        default=None,
+        default="meta-llama/Llama-2-7b-hf",
         metadata={
             "help": "The model that you want to train from the Hugging Face hub. E.g. gpt2, gpt2-xl, bert, etc."
         },
