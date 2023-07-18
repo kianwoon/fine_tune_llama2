@@ -30,16 +30,11 @@ from transformers import (
 
 from trl import SFTTrainer
 
-
-########################################################################
-# This is a fully working simple example to use trl's RewardTrainer.
+# This example fine-tunes Llama v2 model on Guanace dataset
+# using QLoRA. At the end of the script we perform merging the weights
+# Use it by correctly passing --model_name argument when running the
+# script. 
 #
-# This example fine-tunes any causal language model (GPT-2, GPT-Neo, etc.)
-# by using the RewardTrainer from trl, we will leverage PEFT library to finetune
-# adapters on the model.
-#
-########################################################################
-
 # Versions used:
 # accelerate == 0.21.0
 # peft == 0.4.0
