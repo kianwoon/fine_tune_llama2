@@ -42,10 +42,6 @@ from trl import SFTTrainer
 # transformers == 4.30.2
 # trl == 0.4.7
 
-# For llama models that have `config.pretraining_tp > 1` use:
-# pip install git+https://github.com/huggingface/peft.git
-# pip install git+https://github.com/huggingface/transformers.git
-
 @dataclass
 class ScriptArguments:
     """
@@ -169,6 +165,9 @@ def create_and_prepare_model(args):
         device_map=device_map, 
         use_auth_token=True
     )
+    
+    # check: https://github.com/huggingface/transformers/pull/24906
+    model.config.pretraining_tp = 1 
 
     peft_config = LoraConfig(
         lora_alpha=script_args.lora_alpha,
