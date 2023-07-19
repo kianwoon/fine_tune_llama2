@@ -42,6 +42,10 @@ from trl import SFTTrainer
 # transformers == 4.30.2
 # trl == 0.4.7
 
+# For llama models that have `config.pretraining_tp > 1` use:
+# pip install git+https://github.com/huggingface/peft.git
+# pip install git+https://github.com/huggingface/transformers.git
+
 @dataclass
 class ScriptArguments:
     """
