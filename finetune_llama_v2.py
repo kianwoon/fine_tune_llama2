@@ -207,6 +207,9 @@ model, peft_config, tokenizer = create_and_prepare_model(script_args)
 model.config.use_cache = False
 dataset = load_dataset(script_args.dataset_name, split="train")
 
+# Fix weird overflow issue with fp16 training
+tokenizer.padding_side = "right"
+
 trainer = SFTTrainer(
     model=model,
     train_dataset=dataset,
